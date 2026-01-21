@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+
+  <title>NexKart</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <nav id="navbar"></nav>
+
+  <main class="products-page">
+  <section class="filters-section">
+
+  <div class="filters-top" >
+    <h1 class="Datt">Explore our Collection🛍️</h1>
+
+    <input
+      type="text"
+      id="searchInput"
+      placeholder="Search products..."
+    />
+  </div>
+
+  <div class="filters-row">
+
+    <div class="category-pills">
+      <button id="cat-all" class="category-pill active" onclick="setCategory('')">All</button>
+      <button id="cat-electroincs" class="category-pill" onclick="setCategory('electroincs')">Electronics</button>
+      <button id="cat-fashion" class="category-pill" onclick="setCategory('fashion')">Fashion</button>
+      <button id="cat-home" class="category-pill" onclick="setCategory('home')">Home</button>
+      <button id="cat-books" class="category-pill" onclick="setCategory('books')">Books</button>
+      <button id="cat-other" class="category-pill" onclick="setCategory('other')">Other</button>
+    </div>
+
+    <div class="price-filter">
+      <input type="number" id="minPrice" placeholder="Min ₹" />
+      <input type="number" id="maxPrice" placeholder="Max ₹" />
+      <button onclick="applyPriceFilter()">Apply</button>
+    </div>
+</section>
+  <div id="products" class="product-grid"></div>
+  <div id="pagination"></div>
+
+</main>
+  <script src="js/navbar.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/products.js"></script>
+</body>
+</html>

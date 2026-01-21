@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+
+  <title>Login</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <div class="auth-wrapper">
+    <div class="auth-card">
+      <h1>Welcome Back</h1>
+      <p class="subtitle">Login to continue shopping</p>
+
+      <input type="email" id="email" placeholder="Email" />
+      <input type="password" id="password" placeholder="Password" />
+      <p id="error" style="color:red;margin-top:10px;"></p>
+
+      <button onclick="login()">Login</button>
+
+      <p class="auth-footer">
+        New user?
+        <a href="/register.html">Create an account</a>
+      </p>
+    </div>
+  </div>
+
+
+  <script src="js/auth.js"></script>
+</body>
+</html>

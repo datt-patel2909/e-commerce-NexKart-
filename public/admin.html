@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+
+  <title>Manage Products</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<nav id="navbar"></nav>
+
+<h1 align="center"> Manage Products</h1>
+<h3>Add / Edit Product</h3>
+<input id="name" placeholder="Name">
+<input id="description" placeholder="Description">
+<input id="price" type="number" placeholder="Price">
+<input id="stock" type="number" placeholder="Stock">
+<select id="category">
+  <option value="">Select Category</option>
+  <option value="electroincs">Electronics</option>
+  <option value="fashion">Fashion</option>
+  <option value="home">Home</option>
+  <option value="books">Books</option>
+  <option value="other">Other</option>
+</select>
+
+<input type="text" id="image" placeholder="Image URL" />
+<label style="display:flex;align-items:center;gap:6px;margin-top:8px;">
+  <input type="checkbox" id="bestSeller" />
+  Best Seller
+</label>
+<div id="error" style="color:red;margin-bottom:10px;"></div>
+<div class="save-btn-wrapper">
+  <button id="saveBtn" onclick="saveProduct()">Save</button>
+  <button id="cancelBtn" onclick="cancelEdit()">Cancel</button>
+</div>
+
+<hr>
+
+<h3>All Products</h3>
+<div class="manage-products">
+<div id="products"></div></div>
+<script>
+  if (!localStorage.getItem("token")) {
+    window.location.replace("/login.html");
+  }
+</script>
+
+<script src="js/navbar.js"></script>
+<script src="js/admin.js"></script>
+</body>
+</html>

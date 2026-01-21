@@ -1,0 +1,30 @@
+const User=require('../models/User')
+const jwt=require('jsonwebtoken')
+const{UnauthenticatedError}=require('../errors/index')
+const auth=async (req,res,next)=>{
+    const authheader=req.headers.authorization
+    if(!authheader || !authheader.startsWith('Bearer'))
+    {
+        throw new UnauthenticatedError('Authentication Invalid')
+    }
+    const token=authheader.split(' ')[1]
+
+    try {
+        const payload=jwt.verify(token,process.env.JWT_SECRET)
+        req.user={userId:payload.userId,role:payload.role}
+        next()
+    } catch (error) {
+        throw new UnauthenticatedError('Authentication Invalid')
+    }
+}    
+
+const authorizeroles=(...roles)=>{
+    return(req,res,next)=>{
+        if(!roles.includes(req.user.role)){
+            return res.status(403).json({message:"Forbidden:Insufficient role"})
+        }
+        next()
+    }
+}
+
+module.exports={auth,authorizeroles}
