@@ -38,7 +38,19 @@ const productschema=mongoose.Schema({
     bestSeller: {
     type: Boolean,
     default: false
+    },
+    colors: {
+        type: [String],
+        default: ['#222'],
+    },
+    averageRating: {
+        type: Number,
+        default: 0,
+    },
+    numOfReviews: {
+        type: Number,
+        default: 0,
     }
-},{timeStamps:true})
+},{timestamps:true})
 
 module.exports=mongoose.model("product",productschema)

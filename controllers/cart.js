@@ -35,7 +35,7 @@ const addtocart=async(req,res)=>{
 
 const getcart=async(req,res)=>{
     const userId=req.user.userId
-    const cart= await Cart.findOne({user:userId}).populate("items.product","name price ")
+    const cart= await Cart.findOne({user:userId}).populate("items.product","name price image")
     if(!cart){
         return res.status(StatusCodes.OK).json({items:[],totalprice:0})
     }
